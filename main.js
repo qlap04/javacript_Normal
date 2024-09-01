@@ -22,7 +22,22 @@ function User(id, name, role, avatar) {
     }
 }
 
+
+User.prototype.companyName = "Google"
 var author = new User(1, "QLap", "Husband", "Avatar")
 author.title = "Share public"
 
-console.log(author.getName())
+console.log(author.companyName)
+
+
+var date = new Date()
+//date.getDate()
+console.log(date.getFullYear())
+
+
+
+var upgrade = Math.floor(Math.random() * 10)
+
+if (upgrade < 5) {
+    alert("Upgrade completefully")
+}
