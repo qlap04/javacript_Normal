@@ -202,26 +202,155 @@
 //DOM events
 //1. Attribute
 //2. assign event using the element node
-var btnElement = document.querySelector('button')
+// var btnElement = document.querySelector('button')
 // console.log(btnElement.classList)
-var h1Element = document.querySelector('h1')
+// var h1Element = document.querySelector('h1')
 
-btnElement.onclick = function () {
-    h1Element.classList.toggle('turnOn')
-    if (h1Element.classList.contains('turnOn') == true) {
-        h1Element.textContent = 'Toggle Off'
-        h1Element.style.color = 'brown'
-    }
+// btnElement.onclick = function () {
+//     h1Element.classList.toggle('turnOn')
+//     if (h1Element.classList.contains('turnOn') == true) {
+//         h1Element.textContent = 'Toggle Off'
+//         h1Element.style.color = 'brown'
+//     }
 
-    else {
-        h1Element.style.color = 'orange'
-        h1Element.textContent = 'Toggle On'
+//     else {
+//         h1Element.style.color = 'orange'
+//         h1Element.textContent = 'Toggle On'
+//     }
+// }
+
+
+// var inputElement = document.querySelector('input[type="text"]')
+
+// inputElement.onchange = function (e) {
+//     console.log(e.target.value)
+// }
+
+
+
+//prevent_default
+//stopPropagation
+
+// var aElements = document.querySelectorAll('a');
+// aElements.forEach((e) => {
+//     e.onclick = event => {
+//         if (!event.target.href.startsWith('https://f8.edu.vn')) {
+//             event.preventDefault();
+//         }
+//     }
+// });
+
+//Promise
+// var btn = document.querySelector('.click')
+// var ct = document.querySelector('h1')
+// btn.addEventListener('click', function (e) {
+//     console.log(Math.random() * 100)
+// })
+
+// var promise0 = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve('first handle')
+//         , 2000)
+// })
+
+// var promise1 = new Promise((resolve, reject) => {
+//     setTimeout(() => resolve('second handle')
+//         , 5000)
+// })
+
+// Promise.all([promise0, promise1])
+//     .then((result) => console.log(result))
+//     .catch((result) => console.log(result))
+//     .finally(() => console.log('done'))
+
+
+var users = [
+    {
+        id: 1,
+        userId: 27,
+        userName: 'Thomas',
+        sex: 'male'
+    },
+    {
+        id: 2,
+        userId: 16,
+        userName: 'Rain',
+        sex: 'female'
+    },
+    {
+        id: 3,
+        userId: 19,
+        userName: 'Kai',
+        sex: 'male'
+    },
+]
+
+var comments = [
+    {
+        id: 23,
+        userId: 27,
+        comment: 'I wanna go Poisedon 😝'
+    },
+    {
+        id: 24,
+        userId: 16,
+        comment: 'Hmm, too expensive 🙏, taking with your dad '
+    },
+    {
+        id: 25,
+        userId: 19,
+        comment: 'Please Honey!'
+    },
+]
+
+var author = document.querySelectorAll('.author')
+var text = document.querySelectorAll('.text')
+// Hàm lấy danh sách comments
+function getComments(commentsList) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(commentsList.filter((cm) => cm.id == 23 || cm.id == 24)), 2000);
+    });
+}
+
+// Hàm lấy danh sách user names theo userIds
+function getUserByUserId(userIds) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            var userNameMatching = users
+                .filter((user) => userIds.some(item => item == user.userId))
+                .map((user) => user.userName);
+            resolve(userNameMatching);
+        }, 2000);
+    });
+}
+
+// Sử dụng async/await để xử lý các hàm không đồng bộ
+async function main() {
+    try {
+        let commentsList = await getComments(comments);
+
+        let userIds = commentsList
+            .map((cm) => cm.userId);
+
+        let userNameMatching = await getUserByUserId(userIds);
+
+        for (var i = 0; i <= 1; i++) {
+            author[i].textContent = userNameMatching[i]
+            text[i].textContent = commentsList[i].comment
+        }
+    } catch (error) {
+        console.error("Error:", error);
     }
 }
 
+main();
 
-var inputElement = document.querySelector('input[type="text"]')
 
-inputElement.onchange = function (e) {
-    console.log(e.target.value)
-}
+var jeweryAPI = 'https://fakestoreapi.com/products/category/jewelery'
+fetch(jeweryAPI)
+    .then(response => {
+        return response.json()
+    })
+    .then((listJewery => {
+        console.log(listJewery)
+    }))
+    .catch(error => alert(error))

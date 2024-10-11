@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Zero to Hero IOS Developer",
+      "star": 4.8
+    },
+    {
+      "id": 2,
+      "title": "Basic JavaScript",
+      "star": 4.7
+    },
+    {
+      "id": 3,
+      "title": "Java Backend",
+      "star": 4.5
+    },
+    {
+      "title": "Fullstack Nestjs Nextjs",
+      "star": "4.9",
+      "id": 4
+    },
+    {
+      "course": "Security Engineer",
+      "star": 3.2,
+      "id": 5
+    },
+    {
+      "course": "data science",
+      "star": 4.8,
+      "id": 6
+    },
+    {
+      "course": "architecture engineer",
+      "star": 5,
+      "id": 7
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-.title1 {
+/* .title1 {
     color: blue;
     font-size: x-large;
 }
@@ -6,4 +6,81 @@
 p {
     background-color: bisque;
     color: black;
+}
+
+.a-tag {
+    display: flex;
+    flex-direction: column;
+}
+
+#ip-text:focus~ul {
+    display: block;
+}
+
+ul {
+    display: none;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+}
+
+.comment-section {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.comment .author {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment .text {
+    margin-top: 5px;
+    color: #555;
+}
+
+.comment .reply {
+    margin-top: 10px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.reply-comment {
+    margin-left: 40px;
+    margin-top: 15px;
+    border-left: 3px solid #e0e0e0;
+    padding-left: 10px;
+}
+
+.reply-comment .author {
+    font-weight: bold;
+    color: #333;
+}
+
+.reply-comment .text {
+    margin-top: 5px;
+    color: #555;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: large;
+    letter-spacing: 4px;
+    background: linear-gradient(0, #1a9c84, #466ea3);
+    -webkit-background-clip: text;
+    color: transparent;
 }
